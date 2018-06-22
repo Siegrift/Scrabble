@@ -1,5 +1,6 @@
 import express from 'express'
 import fs from 'fs'
+import uuidGenerator from 'uuid/v1'
 import {state} from './state'
 import {WORDS_FILENAME} from './constants'
 
@@ -20,8 +21,15 @@ const getWords = (req, res) => {
   res.send(state.words)
 }
 
+const createGame = (req, res) => {
+  const uuid = uuidGenerator()
+  state.games[uuid] = {}
+  res.send(uuid)
+}
+
 router.get('/', sampleRequest)
 router.post('/word', addWord)
 router.get('/words', getWords)
+router.get('/create', createGame)
 
 export default router

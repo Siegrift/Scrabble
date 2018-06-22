@@ -1,7 +1,10 @@
 import {WORDS_FILENAME} from './constants'
 import {readFilePromise} from './utils'
 
-export const state = {}
+export const state = {
+  words: null,
+  games: {},
+}
 
 // TODO this could be moved to database
 export const initializeState = async () => {
