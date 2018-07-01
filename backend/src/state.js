@@ -2,11 +2,13 @@ import {WORDS_FILENAME} from './constants'
 import {readFilePromise} from './utils'
 
 export const state = {
+  // TODO words could be moved to database
   words: null,
   games: {},
+  users: {},
 }
 
-// TODO this could be moved to database
+// called on every backend reload (even hot)
 export const initializeState = async () => {
   const rawData = await readFilePromise(WORDS_FILENAME)
   const splitted = rawData.toString().split('\n')

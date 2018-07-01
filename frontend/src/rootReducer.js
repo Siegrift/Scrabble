@@ -1,4 +1,4 @@
-import {forwardReducerTo} from './shared/utils'
+import {forwardReducerTo} from './utils'
 import getInitialState from './state'
 
 const rootReducer = (state = getInitialState(), action) => {
